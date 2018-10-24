@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KubernetesExampleWebApi", "KubernetesExampleWebApi\KubernetesExampleWebApi.csproj", "{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9436B4DE-C6E1-46F2-B29C-A25456AB481A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B9A79D64-1E4D-4822-A377-2DAFDA1903DC}"
+	ProjectSection(SolutionItems) = preProject
+		..\kubernetes.yml = ..\kubernetes.yml
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D} = {9436B4DE-C6E1-46F2-B29C-A25456AB481A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3414BC40-C409-427D-90D0-96B8804A8112}
+	EndGlobalSection
+EndGlobal
