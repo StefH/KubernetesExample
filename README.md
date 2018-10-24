@@ -96,10 +96,21 @@ kubernetes-example-subdomain   LoadBalancer   10.104.240.18   <pending>     80:3
 ```
 
 ### 5. Test using curl
+test redis connectionstring via pod
+```
+curl http://10.104.240.18/api/test/10-40-0-1.default.cluster.local
+```
+
+non cached
 ```
 curl http://10.104.240.18/api/values
-
 curl http://10.104.240.18/api/values/0
-
 curl http://10.104.240.18/api/values/1
+```
+
+cached
+```
+curl http://10.104.240.18/api/valuescached
+curl http://10.104.240.18/api/valuescached/0
+curl http://10.104.240.18/api/valuescached/1
 ```

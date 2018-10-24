@@ -10,24 +10,41 @@ namespace KubernetesExampleWebApi.Controllers
     [ApiController]
     public class TestController : ControllerBase
     {
-        // GET api/test/redisconnectionstringvalue
-        [HttpGet("{redisConnectionString}")]
-        public IActionResult Get(string redisConnectionString)
+        // GET api/test/redisconnectionstringvalue/1
+        [HttpGet("{redisConnectionString}/{id}")]
+        public IActionResult Get(string redisConnectionString, int id)
         {
             try
             {
                 var redisClient = new RedisClient(redisConnectionString);
 
+                string key = id.ToString();
+
+                bool valueFromCache = false;
+                string value = redisClient.Get<string>(key);
+
+                if (value == null)
+                {
+                    value = $"value:{id}";
+                    redisClient.Set(key, value);
+                }
+                else
+                {
+                    valueFromCache = true;
+                }
+
                 return Ok(new Item
                 {
-                    Value = $"get a value from cache with id = '1' : {redisClient.Get<string>("1")}"
+                    FromCache = valueFromCache,
+                    Value = $"test redisConnectionString ok ! : {value}"
                 });
             }
             catch (Exception ex)
             {
                 return Ok(new
                 {
-                    Info = $"redisConnectionString = '{redisConnectionString}'",
+                    Id = $"{id}",
+                    RedisConnectionString = redisConnectionString,
                     Exception = Regex.Replace(ex.ToString(), @"\t|[\n\r]", " ")
                 });
             }
