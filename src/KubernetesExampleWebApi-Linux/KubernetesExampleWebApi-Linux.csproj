@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -7,19 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\KubernetesExampleWebApi\Controllers\ValuesController.cs" Link="Controllers\ValuesController.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\CustomExceptionMiddleware.cs" Link="CustomExceptionMiddleware.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\Models\Item.cs" Link="Models\Item.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\Program.cs" Link="Program.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\Redis\IRedisCache.cs" Link="Redis\IRedisCache.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\Redis\RedisCache.cs" Link="Redis\RedisCache.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\Redis\RedisConfiguration.cs" Link="Redis\RedisConfiguration.cs" />
-    <Compile Include="..\KubernetesExampleWebApi\Startup.cs" Link="Startup.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\*.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Controllers\*.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Models\*.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Redis\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Redis\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
