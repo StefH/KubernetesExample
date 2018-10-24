@@ -24,14 +24,6 @@ docker rmi $(docker images -f "dangling=true" -q)
 docker run -it -p 54331:80 --rm sheyenrath/kubernetes-example
 ```
 
-#### 3a. Test using curl
-```
-curl http://localhost:54331/api/values
-```
-
-#### 3b. Stop
-Just press `CTRL-C` to stop the web-api.
-
 ### 4. Push
 ```
 docker push sheyenrath/kubernetes-example:latest
@@ -53,18 +45,21 @@ docker rmi $(docker images -f "dangling=true" -q)
 docker run -it -p 54331:80 --rm sheyenrath/kubernetes-example-nano
 ```
 
-#### 3a. Test using curl
-```
-curl http://localhost:54331/api/values
-```
-
-#### 3b. Stop
-Just press `CTRL-C` to stop the web-api.
-
 ### 4. Push
 ```
-docker push sheyenrath/kubernetes-example-nano:latest
+docker push sheyenrath/kubernetes-example:latest
 ```
+
+## Common
+### 5. Test using curl
+```
+curl http://localhost:54331/api/values
+
+curl http://localhost:54331/api/values/0
+
+curl http://localhost:54331/api/values/1
+```
+
 
 # Kubernetes
 ## Commands
@@ -103,4 +98,8 @@ kubernetes-example-subdomain   LoadBalancer   10.104.240.18   <pending>     80:3
 ### 5. Test using curl
 ```
 curl http://10.104.240.18/api/values
+
+curl http://10.104.240.18/api/values/0
+
+curl http://10.104.240.18/api/values/1
 ```

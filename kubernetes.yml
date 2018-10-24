@@ -35,5 +35,5 @@ spec:
   hostname: kubernetes-example-redis
   subdomain: kubernetes-example-subdomain
   containers:
-  - image: redis
+  - image: redis:alpine
     name: kubernetes-example-redis
