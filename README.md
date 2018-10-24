@@ -80,10 +80,27 @@ kubectl apply -f kubernetes.yml
 kubectl get pods
 >>
 NAME                        READY     STATUS    RESTARTS   AGE
-kubernetes-example-webapi   1/1       Running   0          6m
+kubernetes-example-redis    1/1       Running   0          8m
+kubernetes-example-webapi   1/1       Running   0          18m
 ```
 
-### 3. Describe the `kubernetes-example-webapi` pod
+### 3a. Describe the `kubernetes-example-webapi` and `kubernetes-example-redis` pod
 ```
 kubectl describe pod kubernetes-example-webapi
+
+kubectl describe pod kubernetes-example-redis
+```
+
+### 4. Get service information
+```
+kubectl get svc
+>>
+NAME                           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes                     ClusterIP      10.96.0.1       <none>        443/TCP        42m
+kubernetes-example-subdomain   LoadBalancer   10.104.240.18   <pending>     80:30011/TCP   4m
+```
+
+### 5. Test using curl
+```
+curl http://10.104.240.18/api/values
 ```

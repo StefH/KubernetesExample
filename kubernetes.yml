@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: default-subdomain
+  name: kubernetes-example-subdomain
 spec:
   selector:
     name: kubernetes-example
-  clusterIP: None
   ports:
   - port: 80
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Pod
@@ -17,10 +17,23 @@ metadata:
     name: kubernetes-example
 spec:
   hostname: kubernetes-example-webapi
-  subdomain: default-subdomain
+  subdomain: kubernetes-example-subdomain
   containers:
   - image: sheyenrath/kubernetes-example
     env:
     - name: TEST_ENV_VAR1
       value: "Value 1"
     name: kubernetes-example-webapi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-example-redis
+  labels:
+    name: kubernetes-example
+spec:
+  hostname: kubernetes-example-redis
+  subdomain: kubernetes-example-subdomain
+  containers:
+  - image: redis
+    name: kubernetes-example-redis
