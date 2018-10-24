@@ -54,9 +54,7 @@ docker push sheyenrath/kubernetes-example:latest
 ### 5. Test using curl
 ```
 curl http://localhost:54331/api/values
-
 curl http://localhost:54331/api/values/0
-
 curl http://localhost:54331/api/values/1
 ```
 
@@ -100,6 +98,9 @@ test redis connectionstring via pod
 ```
 curl http://10.104.240.18/api/test/10-40-0-1.default.cluster.local
 ```
+
+test redis connectionstring via svc
+**TODO** : my-svc.my-namespace.svc.cluster.local
 
 non cached
 ```
