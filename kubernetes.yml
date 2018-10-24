@@ -19,7 +19,7 @@ spec:
   hostname: kubernetes-example-webapi
   subdomain: default-subdomain
   containers:
-  - image: index.docker.io/sheyenrath/kubernetes-example-nano:latest
+  - image: sheyenrath/kubernetes-example
     env:
     - name: TEST_ENV_VAR1
       value: "Value 1"

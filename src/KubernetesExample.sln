@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KubernetesExampleWebApi-Linux", "KubernetesExampleWebApi-Linux\KubernetesExampleWebApi-Linux.csproj", "{54BB6138-6555-46B1-B970-DC4875F44596}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54BB6138-6555-46B1-B970-DC4875F44596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54BB6138-6555-46B1-B970-DC4875F44596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54BB6138-6555-46B1-B970-DC4875F44596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54BB6138-6555-46B1-B970-DC4875F44596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D} = {9436B4DE-C6E1-46F2-B29C-A25456AB481A}
+		{54BB6138-6555-46B1-B970-DC4875F44596} = {9436B4DE-C6E1-46F2-B29C-A25456AB481A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3414BC40-C409-427D-90D0-96B8804A8112}
