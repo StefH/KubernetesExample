@@ -3,6 +3,11 @@ using ServiceStack.Redis;
 
 namespace KubernetesExampleWebApi.Redis
 {
+    /// <summary>
+    /// Based on
+    /// - https://www.infoworld.com/article/3187905/application-development/how-to-work-with-redis-cache-in-net.html
+    /// - https://github.com/garywoodfine/redis-mvc-core
+    /// </summary>
     internal class RedisCache : IRedisCache
     {
         private readonly RedisClient _redisClient;
