@@ -8,18 +8,25 @@
 
   <ItemGroup>
     <Compile Include="..\KubernetesExampleWebApi\Controllers\ValuesController.cs" Link="Controllers\ValuesController.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Models\Item.cs" Link="Models\Item.cs" />
     <Compile Include="..\KubernetesExampleWebApi\Program.cs" Link="Program.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Redis\IRedisCache.cs" Link="Redis\IRedisCache.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Redis\RedisCache.cs" Link="Redis\RedisCache.cs" />
+    <Compile Include="..\KubernetesExampleWebApi\Redis\RedisConfiguration.cs" Link="Redis\RedisConfiguration.cs" />
     <Compile Include="..\KubernetesExampleWebApi\Startup.cs" Link="Startup.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Redis\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="ServiceStack.Redis" Version="5.4.0" />
   </ItemGroup>
 
 </Project>
