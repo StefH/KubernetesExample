@@ -65,38 +65,48 @@ curl http://localhost:54331/api/values/1
 
 ### 1. Create the solution
 ```
-kubectl apply -f kubernetes.yml
+kubectl apply -f kubernetes_deployment.yml
 ```
 
-### 2. Get all Pods
-```
-kubectl get pods
->>
-NAME                        READY     STATUS    RESTARTS   AGE
-kubernetes-example-redis    1/1       Running   0          8m
-kubernetes-example-webapi   1/1       Running   0          18m
-```
-
-### 3a. Describe the `kubernetes-example-webapi` and `kubernetes-example-redis` pod
-```
-kubectl describe pod kubernetes-example-webapi
-
-kubectl describe pod kubernetes-example-redis
-```
-
-### 4. Get service information
+### 2a. Get service information
 ```
 kubectl get svc
 >>
-NAME                           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-kubernetes                     ClusterIP      10.96.0.1       <none>        443/TCP        42m
-kubernetes-example-subdomain   LoadBalancer   10.104.240.18   <pending>     80:30011/TCP   4m
+NAME                                TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes                          ClusterIP      10.96.0.1      <none>        443/TCP        56m
+kubernetes-example-service-redis    ClusterIP      10.108.44.31   <none>        6379/TCP       43m
+kubernetes-example-service-webapi   LoadBalancer   10.110.194.8   <pending>     80:30750/TCP   1m
+```
+
+### 2b. Describe all services
+```
+kubectl describe svc
+```
+
+### 3. Get all Pods
+```
+kubectl get pods
+>>
+NAME                                                    READY     STATUS    RESTARTS   AGE
+kubernetes-example-deployment-redis-57cf4bdcb8-5897m    1/1       Running   0          53m
+kubernetes-example-deployment-webapi-7bf95cf4b8-pnpmx   1/1       Running   0          3m
+```
+
+### 4. Describe all pods
+```
+kubectl describe pods
+
 ```
 
 ### 5. Test using curl
-test redis connectionstring via pod
+test redis connectionstring via ip-address from the pod (**TODO**)
 ```
-curl http://10.104.240.18/api/test/10-40-0-1.default.cluster.local
+curl http://10.110.194.8/api/test/10-40-0-1.default.cluster.local
+```
+
+test redis connectionstring via ip-address from the kubernetes-example-service-webapi service (**TODO**)
+```
+curl ???
 ```
 
 test redis connectionstring via svc
@@ -104,14 +114,14 @@ test redis connectionstring via svc
 
 non cached
 ```
-curl http://10.104.240.18/api/values
-curl http://10.104.240.18/api/values/0
-curl http://10.104.240.18/api/values/1
+curl http://10.110.194.8/api/values
+curl http://10.110.194.8/api/values/0
+curl http://10.110.194.8/api/values/1
 ```
 
 cached
 ```
-curl http://10.104.240.18/api/valuescached
-curl http://10.104.240.18/api/valuescached/0
-curl http://10.104.240.18/api/valuescached/1
+curl http://10.110.194.8/api/valuescached
+curl http://10.110.194.8/api/valuescached/0
+curl http://10.110.194.8/api/valuescached/1
 ```

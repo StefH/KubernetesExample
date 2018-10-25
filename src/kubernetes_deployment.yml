@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-example-deployment-redis
+  labels:
+    app: kubernetes-example-app-redis
+spec:
+  selector:
+    matchLabels:
+      app: kubernetes-example-app-redis
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kubernetes-example-app-redis
+        tier: backend
+    spec:
+      containers:
+      - name: kubernetes-example-container-redis
+        image: redis:alpine
+        ports:
+        - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-example-service-redis
+  labels:
+    app: kubernetes-example-app-redis
+    tier: backend
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: kubernetes-example-app-redis
+    tier: backend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-example-deployment-webapi
+  labels:
+    app: kubernetes-example-app-webapi
+spec:
+  selector:
+    matchLabels:
+      app: kubernetes-example-app-webapi
+      tier: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kubernetes-example-app-webapi
+        tier: frontend
+    spec:
+      containers:
+      - name: kubernetes-example-container-webapi
+        image: sheyenrath/kubernetes-example
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-example-service-webapi
+spec:
+  selector:
+    name: kubernetes-example-app-webapi
+  type: LoadBalancer
+  ports:
+    - port: 80
