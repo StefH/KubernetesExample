@@ -17,6 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KubernetesExampleWebApi-Linux", "KubernetesExampleWebApi-Linux\KubernetesExampleWebApi-Linux.csproj", "{54BB6138-6555-46B1-B970-DC4875F44596}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-images", "docker-images", "{61C8D32F-49FF-4EBE-855D-33CC3E7A696D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "simple-file", "simple-file", "{07CD3B4D-FD48-45CA-84B5-82C611771E1B}"
+	ProjectSection(SolutionItems) = preProject
+		..\docker-images\simple-file\Dockerfile = ..\docker-images\simple-file\Dockerfile
+		..\docker-images\simple-file\file.json = ..\docker-images\simple-file\file.json
+		..\docker-images\simple-file\how-to.md = ..\docker-images\simple-file\how-to.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +47,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{65E1E825-DFC6-438C-B235-E9B2F5E59B8D} = {9436B4DE-C6E1-46F2-B29C-A25456AB481A}
 		{54BB6138-6555-46B1-B970-DC4875F44596} = {9436B4DE-C6E1-46F2-B29C-A25456AB481A}
+		{07CD3B4D-FD48-45CA-84B5-82C611771E1B} = {61C8D32F-49FF-4EBE-855D-33CC3E7A696D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3414BC40-C409-427D-90D0-96B8804A8112}
